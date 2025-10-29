@@ -1,0 +1,3 @@
+curl -X POST "https://graph.facebook.com/v18.0/YOUR_APP_ID/subscriptions" \
+-H "Authorization: Bearer EAAjZByAaNJ94BP1FW3qhjw0epHC3scY5RhP88b8UggFKx6aM2n09Pn1BbU3uXTtdt22TdbCDMO5ca03YLt13xt5cldFCOgaEn3yvxUzzMEZBJFzZBfUTdPhCkdYDWbHHkSqRPt4VwzdAeJI3JazZCTHIUN12N4M7ebo1XDfcfePZCoaSysCSMZCHaeZChB7XLFNtwZDZD" \
+-d 'object=whatsapp_business_account&callback_url=https://ycwuerfvi5qun2ogdj36crimei0fjmic.lambda-url.us-east-1.on.aws/&fields=messages&verify_token=test1234567890'

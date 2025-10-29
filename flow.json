@@ -1,0 +1,86 @@
+{
+  "version": "7.2",
+  "data_api_version": "3.0",
+  "routing_model": {
+    "SELECT_ORDER": [
+      "CONFIRM_ORDER"
+    ],
+    "CONFIRM_ORDER": []
+  },
+  "screens": [
+    {
+      "id": "SELECT_ORDER",
+      "title": "🛒 Place Your Order",
+      "data": {
+        "items": {
+          "type": "array",
+          "items": { "type": "object", "properties": { "id": { "type": "string" }, "title": { "type": "string" }}},
+          "__example__": [
+            { "id": "item_a", "title": "Pizza" },
+            { "id": "item_b", "title": "Burger" }
+          ]
+        },
+        "quantities": {
+          "type": "array",
+          "items": { "type": "object", "properties": { "id": { "type": "string" }, "title": { "type": "string" }}},
+          "__example__": [ { "id": "1", "title": "1" }, { "id": "2", "title": "2" }]
+        }
+      },
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "Form",
+            "name": "selection_form",
+            "children": [
+              { "type": "TextSubheading", "text": "Select an item and quantity" },
+              { "type": "Dropdown", "label": "Item", "name": "item_id", "required": true, "data-source": "${data.items}" },
+              { "type": "Dropdown", "label": "Quantity", "name": "quantity", "required": true, "data-source": "${data.quantities}" },
+              {
+                "type": "Footer",
+                "label": "Review Order",
+                "on-click-action": {
+                  "name": "data_exchange",
+                  "payload": { "item_id": "${form.item_id}", "quantity": "${form.quantity}" }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "CONFIRM_ORDER",
+      "title": "📋 Confirm Your Order",
+      "terminal": true,
+      "data": {
+        "item_name": { "type": "string", "__example__": "Pizza" },
+        "selected_quantity": { "type": "string", "__example__": "2" }
+      },
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "Form",
+            "name": "confirmation_form",
+            "children": [
+              { "type": "TextSubheading", "text": "Please confirm your selection:" },
+              { "type": "TextBody", "text": "Item:", "font-weight": "bold" },
+              { "type": "TextBody", "text": "${data.item_name}" },
+              { "type": "TextBody", "text": "Quantity:", "font-weight": "bold" },
+              { "type": "TextBody", "text": "${data.selected_quantity}" },
+              {
+                "type": "Footer",
+                "label": "Confirm & Send Order",
+                "on-click-action": {
+                  "name": "data_exchange",
+                  "payload": { "confirmed_item": "${data.item_name}", "confirmed_quantity": "${data.selected_quantity}" }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

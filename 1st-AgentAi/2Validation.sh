@@ -1,0 +1,3 @@
+curl -X GET \
+  'https://graph.facebook.com/v24.0/812378515295003/whatsapp_business_encryption' \
+  -H 'Authorization: Bearer EAATrwvMv7KQBP8bu8nogDFeor6uJH2Fi4PZCs9Gz7QxrdboQZARZBmHISG5KsTZA9Wcnfg619FSTx3CCMMFq6vqGQ5F1PFE4bHnPXjeX15pKnm5hFA8qxZAHoeVD5IgwIfe1OZBaaUtK8B3y1ZAL9EcYNeA4lxZAEB9K51jeE7HeSClWlYO4tMGue5LSm7PZCDoBXuwZDZD'

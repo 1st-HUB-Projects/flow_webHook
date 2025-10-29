@@ -1,0 +1,1 @@
+curl "https://mkrpjwouaa7li764vzf6omgjvq0fpdgt.lambda-url.us-east-1.on.aws/?hub.mode=subscribe&hub.verify_token=test1234567890&hub.challenge=123456789"
